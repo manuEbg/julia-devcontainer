@@ -9,7 +9,8 @@ ARG USER_GID=$USER_UID
 
 # Create the user
 RUN groupadd --gid $USER_GID $USERNAME \
-    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
+    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME
+
 #Add postcreate script and make it executable
 RUN mkdir -p /julia-devcontainer-scripts
 COPY ./postcreate.jl /julia-devcontainer-scripts
